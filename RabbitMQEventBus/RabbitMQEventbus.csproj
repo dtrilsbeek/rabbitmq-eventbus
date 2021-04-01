@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Adds an easy way to communicate with RabbitMQ</Description>
+    <Authors>Ichieros</Authors>
   </PropertyGroup>
 
   <ItemGroup>
