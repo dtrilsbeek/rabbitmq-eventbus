@@ -1,0 +1,9 @@
+{
+  "Hostname": "localhost",
+
+  "Exchanges": [
+    {
+      "Name": "numberExchange"
+    }
+  ]
+}

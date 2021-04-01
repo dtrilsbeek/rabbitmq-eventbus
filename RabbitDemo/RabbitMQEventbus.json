@@ -1,0 +1,11 @@
+{
+  "Hostname": "localhost",
+
+  "Upstream": [
+    {
+      "FunctionKey": "number",
+      "Exchange": "numberExchange",
+      "Route": "num"
+    }
+  ]
+}
