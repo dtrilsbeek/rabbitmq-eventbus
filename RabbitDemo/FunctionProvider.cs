@@ -17,8 +17,7 @@ namespace RabbitDemo
             functions.Add("number", PrintNumber);
             return functions;
         }
-        
-        [Functionkey(Key = "number")]
+
         private RabbitMQMessage PrintNumber(object o, BasicDeliverEventArgs args)
         {
             var body = args.Body.ToArray();
