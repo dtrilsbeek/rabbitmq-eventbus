@@ -13,18 +13,24 @@ namespace RabbitMQ_Eventbus.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
+        private static readonly string configurationFileName = @"RabbitMQEventbus.json";
 
         public static IServiceCollection AddRabbitMQEventbus(this IServiceCollection services)
         {
-            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"RabbitMQEventbus.json");
+            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), configurationFileName);
             var file = File.ReadAllText(path);
 
             var config = JsonConvert.DeserializeObject<RabbitMQEventbusConfiguration>(file);
 
             services.AddSingleton<IConnectionFactory>(s =>
             {
-                //var config = s.GetRequiredService<IOptionsMonitor<RabbitMQEventbusConfiguration>>().CurrentValue;
-                return new ConnectionFactory() { HostName = config.Hostname };
+                return new ConnectionFactory()
+                {
+                    HostName = config.Hostname,
+                    UserName = config.Username,
+                    Password = config.Password,
+                    Port = config.Port
+                };
             });
 
             services.AddSingleton<IPersistentConnection>(s =>
@@ -35,8 +41,6 @@ namespace RabbitMQ_Eventbus.DependencyInjection
 
             services.AddSingleton<IRabbitMQEventbus>(s =>
             {
-                //var config = s.GetRequiredService<IOptionsMonitor<RabbitMQEventbusConfiguration>>().CurrentValue;
-
                 return new RabbitMQEventbus(config,
                                             s.GetRequiredService<IPersistentConnection>(),
                                             s.GetRequiredService<IRabbitMQFunctionProvider>(),
