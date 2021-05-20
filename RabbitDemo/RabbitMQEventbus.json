@@ -1,11 +1,25 @@
 {
   "Hostname": "localhost",
-
+  "Username": "guest",
+  "Password": "guest",
+  "Exchanges": [
+    {
+      "Name": "EnergyExchange"
+    }
+  ],
   "Upstream": [
     {
-      "FunctionKey": "number",
-      "Exchange": "numberExchange",
-      "Route": "num"
+      "FunctionKey": "HandleSolarData",
+      "Exchange": "WeatherExchange",
+      "QueueName": "WeatherSolarQueue",
+      "Route": "weather.solar"
+    },
+    {
+      "FunctionKey": "HandleWindData",
+      "Exchange": "WeatherExchange",
+      "QueueName": "WeatherWindQueue",
+      "Route": "weather.wind"
     }
+
   ]
 }

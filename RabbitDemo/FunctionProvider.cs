@@ -13,9 +13,11 @@ namespace RabbitDemo
     {
         protected override Dictionary<string, Func<object, BasicDeliverEventArgs, RabbitMQMessage>> InializeFunctionsWithKeys()
         {
-            Dictionary<string, Func<object, BasicDeliverEventArgs, RabbitMQMessage>> functions = new();
-            functions.Add("number", PrintNumber);
-            return functions;
+            Dictionary<string, Func<object, BasicDeliverEventArgs, RabbitMQMessage>> dictionary = new();
+            dictionary.Add("number", PrintNumber);
+            dictionary.Add("HandleWindData", HandleWindData);
+            dictionary.Add("HandleSolarData", HandleSolarData);
+            return dictionary;
         }
 
         private RabbitMQMessage PrintNumber(object o, BasicDeliverEventArgs args)
@@ -23,6 +25,23 @@ namespace RabbitDemo
             var body = args.Body.ToArray();
             var message = Encoding.UTF8.GetString(body);
             Console.WriteLine(" [x] Received {0}", message);
+            return null;
+        }
+        
+        
+        private RabbitMQMessage HandleSolarData(object o, BasicDeliverEventArgs eventArgs)
+        {
+            var body = eventArgs.Body.ToArray();
+            var message = Encoding.UTF8.GetString(body);
+
+            return null;
+        }
+
+        private RabbitMQMessage HandleWindData(object o, BasicDeliverEventArgs eventArgs)
+        {
+            var body = eventArgs.Body.ToArray();
+            var message = Encoding.UTF8.GetString(body);
+
             return null;
         }
     }
