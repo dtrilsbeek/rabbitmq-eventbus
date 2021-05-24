@@ -15,8 +15,7 @@ namespace RabbitDemo
         {
             Dictionary<string, Func<object, BasicDeliverEventArgs, RabbitMQMessage>> dictionary = new();
             dictionary.Add("number", PrintNumber);
-            dictionary.Add("HandleWindData", HandleWindData);
-            dictionary.Add("HandleSolarData", HandleSolarData);
+            dictionary.Add(nameof(HandleCreateFilledTweet), HandleCreateFilledTweet);
             return dictionary;
         }
 
@@ -27,22 +26,16 @@ namespace RabbitDemo
             Console.WriteLine(" [x] Received {0}", message);
             return null;
         }
-        
-        
-        private RabbitMQMessage HandleSolarData(object o, BasicDeliverEventArgs eventArgs)
+
+        private RabbitMQMessage HandleCreateFilledTweet(object o, BasicDeliverEventArgs eventArgs)
         {
             var body = eventArgs.Body.ToArray();
             var message = Encoding.UTF8.GetString(body);
 
-            return null;
-        }
+            Console.WriteLine("HandleCreateFilledTweet");
+            Console.WriteLine(message);
 
-        private RabbitMQMessage HandleWindData(object o, BasicDeliverEventArgs eventArgs)
-        {
-            var body = eventArgs.Body.ToArray();
-            var message = Encoding.UTF8.GetString(body);
-
-            return null;
+            return new RabbitMQMessage(null, "tweet is created: tweetinfo");
         }
     }
 }

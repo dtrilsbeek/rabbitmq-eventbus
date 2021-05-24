@@ -7,6 +7,7 @@ using RabbitMQ_Eventbus.Connection;
 using RabbitMQ_Eventbus.Eventbus;
 using System;
 using System.IO;
+using RabbitMQ_Eventbus.Message;
 
 namespace RabbitDemo
 {
@@ -31,6 +32,9 @@ namespace RabbitDemo
             var functionProvider = new FunctionProvider();
 
             RabbitMQEventbus eventbus = new RabbitMQEventbus(config, connection,functionProvider,eventbusLogger);
+
+            var message = "Tweet Partial";
+            eventbus.Publish(new RabbitMQMessage(new MessageDestination("TweetsExchange", "tweets.create.partial"), message));
 
             Console.WriteLine("Numbers:");
 

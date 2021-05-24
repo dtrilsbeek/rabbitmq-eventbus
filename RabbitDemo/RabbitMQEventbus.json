@@ -4,22 +4,18 @@
   "Password": "guest",
   "Exchanges": [
     {
-      "Name": "EnergyExchange"
+      "Name": "TweetsExchange"
     }
   ],
   "Upstream": [
     {
-      "FunctionKey": "HandleSolarData",
-      "Exchange": "WeatherExchange",
-      "QueueName": "WeatherSolarQueue",
-      "Route": "weather.solar"
-    },
-    {
-      "FunctionKey": "HandleWindData",
-      "Exchange": "WeatherExchange",
-      "QueueName": "WeatherWindQueue",
-      "Route": "weather.wind"
+      "FunctionKey": "HandleCreateFilledTweet",
+      "Exchange": "TweetsExchange",
+      "Route": "tweets.create.filled",
+      "Downstream": {
+        "Exchange": "TweetsExchange",
+        "Route": "tweets.created"
+      }
     }
-
   ]
 }

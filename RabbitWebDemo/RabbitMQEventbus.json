@@ -1,9 +1,24 @@
 {
   "Hostname": "localhost",
-
   "Exchanges": [
     {
-      "Name": "numberExchange"
+      "Name": "TweetsExchange"
+    }
+  ],
+  "Upstream": [
+    {
+      "FunctionKey": "HandleFillPartialTweet",
+      "Exchange": "TweetsExchange",
+      "Route": "tweets.create.partial",
+      "Downstream": {
+        "Exchange": "TweetsExchange",
+        "Route": "tweets.create.filled"
+      }
+    },
+    {
+      "FunctionKey": "HandleCreatedTweet",
+      "Exchange": "TweetsExchange",
+      "Route": "tweets.created"
     }
   ]
 }

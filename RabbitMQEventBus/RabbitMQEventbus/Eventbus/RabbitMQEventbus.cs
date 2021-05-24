@@ -87,8 +87,9 @@ namespace RabbitMQ_Eventbus.Eventbus
 
                 QueueExchangeBinding binding = new QueueExchangeBinding();
 
+             
                 // if the queue already exists, it is retrieved, otherwise a new queue is made.
-                if (queuesToDeclare.Exists(q => q.Name.Equals(subscription.QueueName)))
+                if (subscription.QueueName != "" && queuesToDeclare.Exists(q => q.Name.Equals(subscription.QueueName)))
                 {
                     binding.Queue = queuesToDeclare.FirstOrDefault(q => q.Name.Equals(subscription.QueueName));
                 }
@@ -111,7 +112,7 @@ namespace RabbitMQ_Eventbus.Eventbus
                 }
                 else
                 {
-                    binding.Exchange = new Exchange() { Name = subscription.Exchange };
+                    binding.Exchange = new Exchange { Name = subscription.Exchange };
                     exchangesToDeclare.Add(binding.Exchange);
                 }
 
@@ -131,10 +132,10 @@ namespace RabbitMQ_Eventbus.Eventbus
                 // declare the downstream exchange if it's not already going to be declared
                 if (!exchangesToDeclare.Exists(e => e.Name.Equals(subscription.Downstream.Exchange)))
                 {
-                    exchangesToDeclare.Add(new Exchange() { Name = subscription.Downstream.Exchange });
-                    binding.Downstream = subscription.Downstream;
+                    exchangesToDeclare.Add(new Exchange { Name = subscription.Downstream.Exchange });
                 }
-
+                
+                binding.Downstream = subscription.Downstream;
             }
 
             foreach (var queueToDeclare in queuesToDeclare)
