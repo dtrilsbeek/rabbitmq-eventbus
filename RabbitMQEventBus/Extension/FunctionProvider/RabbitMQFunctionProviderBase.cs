@@ -1,9 +1,9 @@
-﻿using RabbitMQ.Client.Events;
-using RabbitMQ_Eventbus.Message;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using RabbitMQ.Client.Events;
+using RabbitMQEventbus.Extension.Message;
 
-namespace RabbitMQ_Eventbus.FunctionProvider
+namespace RabbitMQEventbus.Extension.FunctionProvider
 {
     /// <summary>
     /// The base class of a functionprovider that provides functions that handle incoming RabbitMQ messages.

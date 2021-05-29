@@ -1,4 +1,4 @@
-﻿namespace RabbitMQ_Eventbus.Configuration
+﻿namespace RabbitMQEventbus.Extension.RabbitMQEventbusConfiguration
 {
     /// <summary>
     /// Describes an endpoint where messages coming from RabbitMQ

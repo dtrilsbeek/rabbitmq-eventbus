@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using RabbitMQ_Eventbus.Eventbus;
+using RabbitMQEventbus.Extension.Eventbus;
 
-namespace RabbitMQ_Eventbus.DependencyInjection
+namespace RabbitMQEventbus.Extension.DependencyInjection
 {
     public static class ApplicationBuilderExtensions
     {

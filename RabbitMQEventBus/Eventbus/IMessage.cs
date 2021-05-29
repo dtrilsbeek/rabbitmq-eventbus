@@ -1,4 +1,4 @@
-﻿namespace RabbitMQ_Eventbus.Eventbus
+﻿namespace RabbitMQEventbus.Eventbus
 {
     /// <summary>
     /// The message that will be sent to the message broker.

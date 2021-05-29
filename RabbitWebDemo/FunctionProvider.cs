@@ -1,9 +1,9 @@
 ﻿using RabbitMQ.Client.Events;
-using RabbitMQ_Eventbus.FunctionProvider;
-using RabbitMQ_Eventbus.Message;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using RabbitMQEventbus.Extension.FunctionProvider;
+using RabbitMQEventbus.Extension.Message;
 
 namespace RabbitWebDemo
 {

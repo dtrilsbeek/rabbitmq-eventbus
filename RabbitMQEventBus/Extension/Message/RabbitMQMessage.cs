@@ -1,6 +1,6 @@
-﻿using RabbitMQ_Eventbus.Eventbus;
+﻿using RabbitMQEventbus.Eventbus;
 
-namespace RabbitMQ_Eventbus.Message
+namespace RabbitMQEventbus.Extension.Message
 {
     /// <summary>
     /// A message that will be sent to the RabbitMQ broker.

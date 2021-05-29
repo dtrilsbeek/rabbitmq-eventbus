@@ -1,4 +1,4 @@
-﻿namespace RabbitMQ_Eventbus.Configuration
+﻿namespace RabbitMQEventbus.Extension.RabbitMQEventbusConfiguration
 {
     /// <summary>
     /// Describes the destination of a response message when a message

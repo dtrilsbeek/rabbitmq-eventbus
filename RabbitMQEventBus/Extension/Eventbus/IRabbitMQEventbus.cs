@@ -1,6 +1,7 @@
-﻿using RabbitMQ_Eventbus.Message;
+﻿using RabbitMQEventbus.Eventbus;
+using RabbitMQEventbus.Extension.Message;
 
-namespace RabbitMQ_Eventbus.Eventbus
+namespace RabbitMQEventbus.Extension.Eventbus
 {
     /// <summary>
     /// Allows publishing and subscribing to the RabbitMQ broker.

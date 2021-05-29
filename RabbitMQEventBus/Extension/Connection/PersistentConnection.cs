@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System;
+using System.IO;
+using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using System;
-using System.IO;
 
-namespace RabbitMQ_Eventbus.Connection
+namespace RabbitMQEventbus.Extension.Connection
 {
     /// <summary>
     /// Creates a persistent connection with the RabbitMQ broker.

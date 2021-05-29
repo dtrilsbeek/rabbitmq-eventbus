@@ -1,16 +1,16 @@
-﻿using Microsoft.Extensions.Logging;
-using RabbitMQ.Client;
-using RabbitMQ_Eventbus.Connection;
-using RabbitMQ_Eventbus.FunctionProvider;
-using RabbitMQ_Eventbus.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Extensions.Logging;
+using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using RabbitMQ_Eventbus.Message;
+using RabbitMQEventbus.Extension.Connection;
+using RabbitMQEventbus.Extension.FunctionProvider;
+using RabbitMQEventbus.Extension.Message;
+using RabbitMQEventbus.Extension.RabbitMQEventbusConfiguration;
 
-namespace RabbitMQ_Eventbus.Eventbus
+namespace RabbitMQEventbus.Extension.Eventbus
 {
     public class RabbitMQEventbus : IRabbitMQEventbus
     {
@@ -27,7 +27,7 @@ namespace RabbitMQ_Eventbus.Eventbus
 
         private IModel model;
 
-        public RabbitMQEventbus(RabbitMQEventbusConfiguration configuration,
+        public RabbitMQEventbus(RabbitMQEventbusConfiguration.RabbitMQEventbusConfiguration configuration,
                                 IPersistentConnection connection,
                                 IRabbitMQFunctionProvider functionProvider,
                                 ILogger<RabbitMQEventbus> logger)
@@ -51,7 +51,7 @@ namespace RabbitMQ_Eventbus.Eventbus
             Configured = true;
         }
 
-        private bool ConfigureEventbus(RabbitMQEventbusConfiguration configuration,
+        private bool ConfigureEventbus(RabbitMQEventbusConfiguration.RabbitMQEventbusConfiguration configuration,
                                        IRabbitMQFunctionProvider functionProvider)
         {
             var exchangesToDeclare = new List<Exchange>();

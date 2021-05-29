@@ -1,6 +1,6 @@
 ﻿using RabbitMQ.Client;
 
-namespace RabbitMQ_Eventbus.Connection
+namespace RabbitMQEventbus.Extension.Connection
 {
     /// <summary>
     /// A persistent connection to the RabbitMQ broker.

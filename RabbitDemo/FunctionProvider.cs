@@ -1,11 +1,11 @@
 ﻿using RabbitMQ.Client.Events;
-using RabbitMQ_Eventbus.FunctionProvider;
-using RabbitMQ_Eventbus.Message;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RabbitMQEventbus.Extension.FunctionProvider;
+using RabbitMQEventbus.Extension.Message;
 
 namespace RabbitDemo
 {

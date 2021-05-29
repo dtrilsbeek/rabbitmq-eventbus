@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RabbitMQ_Eventbus.Configuration
+namespace RabbitMQEventbus.Extension.RabbitMQEventbusConfiguration
 {
     /// <summary>
     /// Holds information to declare an exchange for RabbitMQ.

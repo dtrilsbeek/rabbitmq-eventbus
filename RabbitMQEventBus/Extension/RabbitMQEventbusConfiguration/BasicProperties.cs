@@ -1,4 +1,4 @@
-﻿namespace RabbitMQ_Eventbus.Configuration
+﻿namespace RabbitMQEventbus.Extension.RabbitMQEventbusConfiguration
 {
     /// <summary>
     /// Holds properties to configure a <see cref="Publication"/> message

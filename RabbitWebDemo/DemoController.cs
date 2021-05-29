@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RabbitMQ_Eventbus.Eventbus;
-using RabbitMQ_Eventbus.Message;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using RabbitMQEventbus.Extension.Eventbus;
+using RabbitMQEventbus.Extension.Message;
 
 namespace RabbitWebDemo
 {

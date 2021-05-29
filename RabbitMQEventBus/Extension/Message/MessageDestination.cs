@@ -1,4 +1,4 @@
-﻿namespace RabbitMQ_Eventbus.Message
+﻿namespace RabbitMQEventbus.Extension.Message
 {
     /// <summary>
     /// The destination of a message to a RabbitMQ broker.

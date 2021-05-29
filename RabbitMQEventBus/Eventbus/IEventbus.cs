@@ -1,4 +1,4 @@
-﻿namespace RabbitMQ_Eventbus.Eventbus
+﻿namespace RabbitMQEventbus.Eventbus
 {
     /// <summary>
     /// Allows publishing and subscribing to a message broker.

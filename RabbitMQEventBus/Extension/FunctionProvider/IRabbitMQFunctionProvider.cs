@@ -1,8 +1,8 @@
 ﻿using RabbitMQ.Client.Events;
-using RabbitMQ_Eventbus.Eventbus;
-using RabbitMQ_Eventbus.Message;
+using RabbitMQEventbus.Eventbus;
+using RabbitMQEventbus.Extension.Message;
 
-namespace RabbitMQ_Eventbus.FunctionProvider
+namespace RabbitMQEventbus.Extension.FunctionProvider
 {
     /// <summary>
     /// Provides functions that handle incoming messages from the RabbitMQ broker.

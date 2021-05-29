@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RabbitMQ_Eventbus.Eventbus
+namespace RabbitMQEventbus.Eventbus
 {
     /// <summary>
     /// Provides functions that handle incoming messages from the message broker.

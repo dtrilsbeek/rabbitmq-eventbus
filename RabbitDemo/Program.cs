@@ -2,12 +2,11 @@
 using Microsoft.Extensions.Logging.Abstractions;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
-using RabbitMQ_Eventbus.Configuration;
-using RabbitMQ_Eventbus.Connection;
-using RabbitMQ_Eventbus.Eventbus;
 using System;
 using System.IO;
-using RabbitMQ_Eventbus.Message;
+using RabbitMQEventbus.Extension.Connection;
+using RabbitMQEventbus.Extension.Message;
+using RabbitMQEventbus.Extension.RabbitMQEventbusConfiguration;
 
 namespace RabbitDemo
 {
@@ -27,11 +26,11 @@ namespace RabbitDemo
             var connection = new PersistentConnection(connectionFactory, connectionLogger);
 
 
-            var eventbusLogger = new Logger<RabbitMQEventbus>(new NullLoggerFactory());
+            var eventbusLogger = new Logger<RabbitMQEventbus.Extension.Eventbus.RabbitMQEventbus>(new NullLoggerFactory());
 
             var functionProvider = new FunctionProvider();
 
-            RabbitMQEventbus eventbus = new RabbitMQEventbus(config, connection,functionProvider,eventbusLogger);
+            RabbitMQEventbus.Extension.Eventbus.RabbitMQEventbus eventbus = new RabbitMQEventbus.Extension.Eventbus.RabbitMQEventbus(config, connection,functionProvider,eventbusLogger);
 
             var message = "Tweet Partial";
             eventbus.Publish(new RabbitMQMessage(new MessageDestination("TweetsExchange", "tweets.create.partial"), message));
